@@ -3,3 +3,30 @@
   text-align: center;
   margin-bottom: 50px;
 }
+
+#header-container {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  max-width: 100%;
+  background-color: cornflowerblue;
+}
+
+#counters {
+  color: cornsilk;
+}
+
+#card-container {
+  margin-top: 120px;
+}
+
+.card {
+  width: 200px;
+}
+
+#logo {
+  font-family: 'Helvetica', sans-serif;
+}
+
+.subtitle, #counters {
+  font-family: 'Arial', sans-serif;
+}
