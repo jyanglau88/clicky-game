@@ -11,8 +11,13 @@
   background-color: cornflowerblue;
 }
 
+.navbar {
+  background-color: red;
+  border-bottom-color: solid black 2px;
+}
+
 #scoreboard {
-  color: cornsilk;
+  color: black;
 }
 
 #card-container {
@@ -24,14 +29,14 @@
 }
 
 #logo {
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Verdana', sans-serif;
 }
 
-.subtitle, #counters {
-  font-family: 'Arial', sans-serif;
+.subtitle, #scoreboard {
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 img {
-  height: 200px;
-  width: 200px;
+  width: 25%;
+  border: solid 2px rgba(179, 179, 179, 0.938);
 }
