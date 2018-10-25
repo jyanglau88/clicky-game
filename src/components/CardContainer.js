@@ -8,7 +8,6 @@ class CardContainer extends Component {
     constructor(props) {
         super(props);
 
-        // setting the state: score is at 1, friends is pulling in the friend json, and we have no selected friends yet
         this.state = {
             score: 1,
             friends: Friends,
@@ -16,73 +15,60 @@ class CardContainer extends Component {
         };
     }
 
-    
-    // when the user clicks on a friend card
+    // once clicked
     handleClick = (e) => {
 
-        // grab the selected friend's id
+        // grabs id
         let id = e.target.id;
-
-        // init variable that sees if the user selects a friend that's already in selectedFriends
         let exists = false;
 
-        // loop through selected friends and see if any ids match selected id
+        // loops through to see if any ids match
         this.state.selectedFriends.forEach(friend => {
-
-            // if id matches
             if (friend.id == id) {
- 
-                // change exists to true
                 exists = true;
             }
         })
 
-        // if exists is true
         if (exists) {
-            // end the game
+            // end the game if ids match
             this.endGame();
         }
 
-        // otherwise
         else {
-            // loop through the friend json
+            // loop json
             this.state.friends.forEach(friend => {
-                // if the friend id matches the selected id
+                // if ids match
                 if (friend.id == id) {
-                    // add the friend to the selected friend array
+                    // add to array
                     this.setState({selectedFriends: [...this.state.selectedFriends, friend]});
                     console.log(this.state.selectedFriends);
-
-                    // update the score
+                    // update score
                     this.updateScore();
                 }
             })  
         }
         
-
-        // SHUFFLE THE FRIENDS
+        // Shuffle
         this.setState({ friends: shuffle(this.state.friends)});
         console.log("Shuffling Friends");
 
     }
 
-    // function to update the current game's score
+    // update current score
     updateScore = () => {
-        // set the new score
         this.setState({score: this.state.score + 1});
-        // update the parent component's display
         this.props.updateCurrentScore(this.state.score);
         console.log("Score: " + this.state.score);
     }
 
-    // function to end the game
+    // ends game
     endGame = () => {
-        console.log("End!");
-        // push the current game score as the new top score 
+        console.log("Gotta catch em all!");
+        // updates top score
         this.props.updateTopScore(this.state.score);
-        // set the score back to 1 and the selected array to empty 
+        // reset game 
         this.setState({score: 1, selectedFriends: []});
-        // update the current score to 0
+        // updates score to zero
         this.props.updateCurrentScore(0);
     }
 
